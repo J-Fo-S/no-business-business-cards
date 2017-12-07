@@ -34,44 +34,48 @@ function setup() {
 	rect(cardXmin, cardYmin, cardXmax, cardYmax); // centered
 	stroke("green");
 	rect(padXmin, padYmin, padXmax, padYmax); // centered
+	background(15, 25, 255, 10);
+	noStroke();
 
 	// careful! see textSize is used by p5.js library, so don't name it as a var
 	var fontSizeA = Math.round(cardH/10);
+	fill(55);
 	textSize(fontSizeA);
 	text("A. Corporation", padXmin+bleedPadW, padYmax*0.3)
 	var fontSizeNorm = Math.round(cardH/14); // maintain aspect ratio with text too
+	fill(75);
 	textSize(fontSizeNorm);
-	text("A. Person", padXmin+bleedPadW, padYmax*0.6);
-	fill(0, 102, 153);
-	text("CEO of A. People", padXmin+bleedPadW, (padYmax*0.6)+fontSizeA);
-	fill(0, 102, 153, 51);
-	text("P: 0987654321", padXmin+bleedPadW, (padYmax*0.6)+(fontSizeA*2));
+	text("A. Person", padXmin+bleedPadW, padYmax*0.55);
+	fill(0, 102, 153); // note color values - try to improve with cymk-style colors
+	text("CEO of A. People", padXmin+bleedPadW, (padYmax*0.55)+fontSizeA);
+	fill(0, 102, 153, 51); // note 4th value is alpha (transparency)
+	text("P: 0987654321", padXmin+bleedPadW, (padYmax*0.55)+(fontSizeA*2));
 	fill(102, 0, 153, 51);
-	text("E: a.person@a.people.me", padXmin+bleedPadW, (padYmax*0.6)+(fontSizeA*3));
+	text("E: a.person@a.people.me", padXmin+bleedPadW, (padYmax*0.55)+(fontSizeA*3));
 	fill(102, 153, 0, 51);
-	text("W: a.people.me", padXmin+bleedPadW, (padYmax*0.6)+(fontSizeA*4));
+	text("W: a.people.me", padXmin+bleedPadW, (padYmax*0.55)+(fontSizeA*4));
 
 	// create graphic for CEO figure
+	fill(185);
 	ellipse(padXmax - (bleedPadW*3), padYmin + (bleedPadH*2), bleedPadH, bleedPadW);
+	fill(55);
 	rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
 	rect(padXmax - (bleedPadW*3), padYmin + (bleedPadH*4), bleedPadW, bleedPadH*2);
-	//rectMode(CORNER);
 	rect(padXmax - (bleedPadW*4), padYmin + (bleedPadH*3), bleedPadW, bleedPadH);
 	rect(padXmax - (bleedPadW*2), padYmin + (bleedPadH*3), bleedPadW, bleedPadH);
-
-	fill(102, 153, 0, 10);
-	quad(padXmax - (bleedPadW*3), padYmin + (bleedPadH*2), bleedPadW, bleedPadH, padXmin+bleedPadW, padYmax*0.6, padXmin+bleedPadW, (padYmax*0.6)+(fontSizeA*4))
+	fill(255, 0, 0, 15);
+	quad(padXmax - (bleedPadW*3), padYmin + (bleedPadH*2.3), bleedPadW, bleedPadH, padXmin+bleedPadW, padYmax*0.6, padXmin+bleedPadW, padYmax+bleedPadH);
 
 	// create graphic not CEO figures
-	for (var i=0; i<3; i++) {
+	for (var i=0; i<6; i++) {
 		push();
-		translate(padXmax - (bleedPadW*4), padYmax - (bleedPadH*11));
+		translate(padXmax - (bleedPadW*5.5), padYmax - (bleedPadH*11));
 		rotate(TWO_PI*i);
-		
+		fill(75);
 		ellipse(0+bleedPadW*i, 0, bleedPadH, bleedPadW);
+		fill(0, 102, 153); // note color values - try to improve with cymk-style colors
 		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
 		rect(0+bleedPadW*i, 0 + (bleedPadH*2), bleedPadW, bleedPadH*2);
-		//rectMode(CORNER);
 		rect(padXmax - (bleedPadW*4), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		rect(padXmax - (bleedPadW*2), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		pop();
@@ -80,28 +84,28 @@ function setup() {
 	// more not-CEO figures - Only need to change 3 parameters
 	for (var i=0; i<5; i++) {
 		push();
-		translate(padXmax - (bleedPadW*5), padYmax - (bleedPadH*7));
+		translate(padXmax - (bleedPadW*4.5), padYmax - (bleedPadH*7));
 		rotate(TWO_PI*i);
-		
+		fill(75);
 		ellipse(0+bleedPadW*i, 0, bleedPadH, bleedPadW);
+		fill(0, 102, 153, 51); // note 4th value is alpha (transparency)
 		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
 		rect(0+bleedPadW*i, 0 + (bleedPadH*2), bleedPadW, bleedPadH*2);
-		//rectMode(CORNER);
 		rect(padXmax - (bleedPadW*4), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		rect(padXmax - (bleedPadW*2), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		pop();
 	}
 
 	// more not-CEO figures - Only need to change 3 parameters
-	for (var i=0; i<7; i++) {
+	for (var i=0; i<4; i++) {
 		push();
-		translate(padXmax - (bleedPadW*6), padYmax - (bleedPadH*3));
+		translate(padXmax - (bleedPadW*3.5), padYmax - (bleedPadH*3));
 		rotate(TWO_PI*i);
-		
+		fill(75);
 		ellipse(0+bleedPadW*i, 0, bleedPadH, bleedPadW);
+		fill(102, 0, 153, 51);
 		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
 		rect(0+bleedPadW*i, 0 + (bleedPadH*2), bleedPadW, bleedPadH*2);
-		//rectMode(CORNER);
 		rect(padXmax - (bleedPadW*4), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		rect(padXmax - (bleedPadW*2), padYmin + (bleedPadH*4), bleedPadW, bleedPadH);
 		pop();
