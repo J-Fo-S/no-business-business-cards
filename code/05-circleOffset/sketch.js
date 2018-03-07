@@ -9,11 +9,11 @@ function setup() {
 function draw() {
   background(20, 15, 20, 5); // r, g, b, a (a is alpha transparency)
   fill(mouseX%150+10, mouseY%125+50, mouseX+mouseY%100, 255-mouseY%200);
-  //ellipse(mouseX, mouseY, (w/2)-mouseX, (h/2)-mouseY);
+  stroke(100-mouseY%50, 100-mouseX%50, 100-mouseX+mouseY%50);
   ellipse(mouseX, mouseY, 10, 10);
   ellipse(w-mouseX, h-mouseY, 10, 10);
-  //rect(mouseY, mouseX, (w/2)-mouseY, (h/2)-mouseX);
-  stroke(100-mouseY%50, 100-mouseX%50, 100-mouseX+mouseY%50);
+  ellipse(mouseY*(w/h), mouseX*(h/w), 10, 10);
+  ellipse(w-mouseY*(w/h), h-mouseX*(h/w), 10, 10);
   
 }
 

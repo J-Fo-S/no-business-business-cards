@@ -11,5 +11,6 @@ function draw() {
   strokeWeight((mouseX*mouseY)/(2*(w+h)));
   stroke(mouseX%255, mouseY%255, (mouseX+mouseY)%255, (mouseX+mouseY)%155+100);
   line(0, 0, mouseX, mouseY);
+  line(mouseX, mouseY, w, h);
     
 }
