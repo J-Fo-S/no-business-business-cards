@@ -1,6 +1,6 @@
-# no-business-business-cards
+# generative-business-cards
 
-We're going to learn to code by coding our very own business cards. While I can't promise they will get you a job or even look good (that's up to you!), it should be a fun way to learn a little about creative coding basics and design.
+We're going to learn to code by coding our very own business cards. While I can't promise they will 'generate' business (yuk yuk) or even look good (that's up to you!), it should be a fun way to learn a little about creative coding basics and design.
 
 ### I. Get Started
 
