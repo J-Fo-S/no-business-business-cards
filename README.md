@@ -201,7 +201,7 @@ For us, we simply need to rename all the variables in the "instance mode" format
 
 So far we've accomplished a design that can resized and duplicated for as many instances as we desire. The only changes we need to make are to change one number for the height of our card, and everything else will be resized proportionally with it. This is pretty good. And if we want to simply duplicate one design a certain amount of times in a specific overall size, then we don't need anything more.
 
-But, what could be more interesting is to have each design instance to be different - either significantly or subtly. However, we don't want to have to code each different instance - we have already coded enough! It is time to enter the world of generative (also called 'algorithmic') design.
+But, what could be more interesting is to have each design instance to be different - either significantly or subtly. However, we don't want to have to code each different instance - we have already coded enough! It is time to enter the world of generative (also called 'algorithmic') design. (Well, actually we already have entered it - the nested ```for loops``` we practiced before quality, at least in my book) 
 
 There are countless resources dedicated to algorithmic and generative design - I have placed some favorites in the resources section. But this field deserves a simple introduction: algorithmic and generative design are basically mathematical formulas (a piece of code) that gives us different results when we put different numbers into them. 
 
@@ -210,7 +210,7 @@ Sine and cosine are perhaps one of the most core examples. Please see this great
 There are endless algorithms, so let's begin with two basic approaches:
 
 1. Periodic Functions
-2. Randomness (usually in a range)   
+2. Fractals   
 
 [TO DO] compression: http://www.businesscards.org/design-guide/printing/resolution-guide/
 http://www.gimpusers.com/forums/gimp-user/17913-how-to-shrink-photo-retain-quality-business-card-design
