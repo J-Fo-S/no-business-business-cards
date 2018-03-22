@@ -47,10 +47,10 @@ new p5(function(p) {
 
 	// static variables for scaling and shifting
 	var centerX = 0.5*(globals.padXmax - globals.padXmin)+globals.padXmin;
-	var centerRightX = 0.75*(globals.padXmax-globals.padXmin)+globals.padXmin;
-	var centerRightY = 0.5*(globals.padYmax-globals.padYmin)+globals.padYmin;
-	var sinScaleX = 0.15 * (globals.padXmax - globals.padXmin); 
-	var sinScaleY = 0.4 * (globals.padYmax - globals.padYmin); 
+	var centerRightX = 0.7*(globals.padXmax-globals.padXmin)+globals.padXmin;
+	var centerRightY = 0.6*(globals.padYmax-globals.padYmin)+globals.padYmin;
+	var sinScaleX = 0.2 * (globals.padXmax - globals.padXmin); 
+	var sinScaleY = 0.5 * (globals.padYmax - globals.padYmin); 
 
 	// add 3rd for loop (yikes!) so entire scene is drawn multiple times
 	for(var h = globals.padYmin, g = globals.padXmin; h <= globals.padYmax || g <= globals.padXmax; h+=Math.round(globals.padYmin), g+=Math.round(globals.padXmin)){

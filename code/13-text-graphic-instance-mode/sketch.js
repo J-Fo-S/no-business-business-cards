@@ -17,16 +17,16 @@ globals.bleedYmin = 0;
 globals.bleedYmax = globals.cardH + globals.bleedPadH;
 
 // dims for centered card area
-globals.cardXmin = 0 + globals.bleedPadW * 0.5;
+globals.cardXmin = 0 + globals.bleedPadW;
 globals.cardXmax = globals.cardW;
-globals.cardYmin = 0 + (globals.bleedPadH * 0.5);
+globals.cardYmin = 0 + globals.bleedPadH;
 globals.cardYmax = globals.cardH;
 
 // dims for centered padding area
-globals.padXmin = 0 + globals.bleedPadW;
-globals.padXmax = globals.cardW - globals.bleedPadW;
-globals.padYmin = 0 + globals.bleedPadH;
-globals.padYmax = globals.cardH - globals.bleedPadH;
+globals.padXmin = globals.cardXmin + globals.bleedPadW;
+globals.padXmax = globals.cardXmax - globals.bleedPadW;
+globals.padYmin = globals.cardYmin + globals.bleedPadH;
+globals.padYmax = globals.cardYmax - globals.bleedPadH;
 
 // here is the 
 new p5(function(p) {
@@ -37,11 +37,12 @@ new p5(function(p) {
 	p.stroke("black");
 	p.rect(globals.bleedXmin, globals.bleedYmin, globals.bleedXmax-1, globals.bleedYmax-1); // minus one to make it visible inside canvas
 	p.stroke("red");
-	p.rect(globals.cardXmin, globals.cardYmin, globals.cardXmax, globals.cardYmax); // centered
+	p.rect(globals.cardXmin, globals.cardYmin, globals.cardXmax - globals.bleedPadW, globals.cardYmax - globals.bleedPadH); // centered
 	p.stroke("green");
-	p.rect(globals.padXmin, globals.padYmin, globals.padXmax, globals.padYmax); // centered
+	p.rect(globals.padXmin, globals.padYmin, globals.padXmax - globals.bleedPadW*2, globals.padYmax - globals.bleedPadH*2); // centered
 	p.background(15, 25, 255, 10);
 	p.noStroke();
+	p.rectMode(p.CENTER);
 
 	// careful! see textSize is used by p5.js library, so don't name it as a var
 	var fontSizeA = Math.round(globals.cardH/10);
@@ -70,7 +71,7 @@ new p5(function(p) {
 	p.rect(globals.padXmax - (globals.bleedPadW*4), globals.padYmin + (globals.bleedPadH*3), globals.bleedPadW, globals.bleedPadH);
 	p.rect(globals.padXmax - (globals.bleedPadW*2), globals.padYmin + (globals.bleedPadH*3), globals.bleedPadW, globals.bleedPadH);
 	p.fill(255, 0, 0, 15);
-	p.quad(globals.padXmax - (globals.bleedPadW*3), globals.padYmin + (globals.bleedPadH*2.3), globals.bleedPadW, globals.bleedPadH, globals.padXmin+globals.bleedPadW, globals.padYmax*0.6, globals.padXmin+globals.bleedPadW, globals.padYmax+globals.bleedPadH);
+	p.quad(globals.padXmax - (globals.bleedPadW*3), globals.padYmin + (globals.bleedPadH*2.3), globals.padXmin, globals.padYmin, globals.padXmin+globals.bleedPadW, globals.padYmax*0.6, globals.padXmin+globals.bleedPadW, globals.padYmax);
 
 	// create graphic not CEO figures
 	for (var i=0; i<6; i++) {
@@ -121,5 +122,3 @@ new p5(function(p) {
 }
  
 }, "sketch01");
-
-

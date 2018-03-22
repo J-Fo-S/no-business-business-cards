@@ -14,16 +14,16 @@ var bleedYmin = 0;
 var bleedYmax = cardH + bleedPadH;
 
 // dims for centered card area
-var cardXmin = 0 + bleedPadW * 0.5;
+var cardXmin = 0 + bleedPadW;
 var cardXmax = cardW;
-var cardYmin = 0 + (bleedPadH * 0.5);
+var cardYmin = 0 + bleedPadH;
 var cardYmax = cardH;
 
 // dims for centered padding area
-var padXmin = 0 + bleedPadW;
-var padXmax = cardW - bleedPadW;
-var padYmin = 0 + bleedPadH;
-var padYmax = cardH - bleedPadH;
+var padXmin = cardXmin + bleedPadW;
+var padXmax = cardXmax - bleedPadW;
+var padYmin = cardYmin + bleedPadH;
+var padYmax = cardYmax - bleedPadH;
 
 
 function setup() {
@@ -31,9 +31,9 @@ function setup() {
 	stroke("black");
 	rect(bleedXmin, bleedYmin, bleedXmax-1, bleedYmax-1); // minus one to make it visible inside canvas
 	stroke("red");
-	rect(cardXmin, cardYmin, cardXmax, cardYmax); // centered
+	rect(cardXmin, cardYmin, cardXmax -  bleedPadW, cardYmax - bleedPadH); // centered
 	stroke("green");
-	rect(padXmin, padYmin, padXmax, padYmax); // centered
+	rect(padXmin, padYmin, padXmax - bleedPadW*2, padYmax - bleedPadH*2); // centered
 	
 }
 
