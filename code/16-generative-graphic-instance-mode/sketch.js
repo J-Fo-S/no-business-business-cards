@@ -1,3 +1,5 @@
+//NOTE: FIX PADDING DIMS ACCORDING TO CODE EX. 12
+
 // Now we are going to use "instance mode" to create multiple separate drawings in one program
 // First, we attach all global variables to one object - this will simplify our code visually
 var globals = {};

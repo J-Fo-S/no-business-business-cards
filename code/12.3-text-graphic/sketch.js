@@ -55,56 +55,41 @@ function setup() {
 	fill(102, 153, 0, 51);
 	text("W: a.people.me", padXmin+bleedPadW, (padYmax*0.55)+(fontSizeA*4));
 
-	// create graphic for CEO figure
-	fill(185);
-	ellipse(padXmax - (bleedPadW*2), padYmin + (bleedPadH*2), bleedPadH, bleedPadW);
-	fill(55);
-	rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
-	rect(padXmax - (bleedPadW*2), padYmin + (bleedPadH*4), bleedPadW, bleedPadH*2);
-	rect(padXmax - (bleedPadW*3), padYmin + (bleedPadH*3), bleedPadW, bleedPadH);
-	rect(padXmax - (bleedPadW), padYmin + (bleedPadH*3), bleedPadW, bleedPadH);
-	fill(255, 0, 0, 15);
-	quad(padXmax - (bleedPadW*3), padYmin + (bleedPadH*2.3), padXmin, padYmin, padXmin+bleedPadW, padYmax*0.6, padXmin+bleedPadW, padYmax);
-
-	// create graphic not CEO figures
-	for (var i=0; i<6; i++) {
+	for (var i = 0; i <= HALF_PI/2; i+=0.1){
+		noFill();
+		stroke(20, 100-i*100);
+		strokeCap(SQUARE);
+		strokeWeight(bleedPadW);
 		push();
-		translate(padXmax - (bleedPadW*5.5), padYmax - (bleedPadH*11));
-		rotate(TWO_PI*i);
-		fill(75);
-		ellipse(bleedPadW+bleedPadW*i, bleedPadH, bleedPadH, bleedPadW);
-		fill(0, 102, 153); // note color values - try to improve with cymk-style colors
-		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
-		rect(bleedPadW+bleedPadW*i, 0 + (bleedPadH*3), bleedPadW, bleedPadH*2);
+		translate(padXmax*0.95, padYmax*0.2);
+		rotate(i);
+		beginShape();
+		var x1 = 0; 
+		var y1 = padYmax*0.02;
+		var x2 = padXmax*0.1; 
+		var y2 = padYmax*0.25;
+		var x3 = padXmax*0.2; 
+		var y3 = padYmax*0.45;
+		var x4 = 0; 
+		var y4 = padYmax*0.5;
+		bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+		endShape();
+		pop();
+
+		push();
+		translate(padXmax*0.88, padYmax*1);
+		rotate(i);
+		beginShape();
+		var y1 = -padYmax*0.02;
+		var x2 = -padXmax*0.1; 
+		var y2 = -padYmax*0.25;
+		var x3 = -padXmax*0.2; 
+		var y3 = -padYmax*0.45;
+		var y4 = -padYmax*0.5;
+		bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+		endShape();
 		pop();
 	}
-
-	// more not-CEO figures - Only need to change 3 parameters
-	for (var i=0; i<5; i++) {
-		push();
-		translate(padXmax - (bleedPadW*4.5), padYmax - (bleedPadH*7));
-		rotate(TWO_PI*i);
-		fill(75);
-		ellipse(bleedPadW+bleedPadW*i, bleedPadH, bleedPadH, bleedPadW);
-		fill(0, 102, 153, 51); // note 4th value is alpha (transparency)
-		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
-		rect(bleedPadW+bleedPadW*i, 0 + (bleedPadH*3), bleedPadW, bleedPadH*2);
-		pop();
-	}
-
-	// more not-CEO figures - Only need to change 3 parameters
-	for (var i=0; i<4; i++) {
-		push();
-		translate(padXmax - (bleedPadW*3.5), padYmax - (bleedPadH*3));
-		rotate(TWO_PI*i);
-		fill(75);
-		ellipse(bleedPadW+bleedPadW*i, bleedPadH, bleedPadH, bleedPadW);
-		fill(102, 0, 153, 51);
-		rectMode(CENTER); // center the rect at a location kind of like a circle instead of begining at a corner
-		rect(bleedPadW+bleedPadW*i, 0 + (bleedPadH*3), bleedPadW, bleedPadH*2);
-		pop();
-	}
-
 	
 }
 
